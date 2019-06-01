@@ -3,24 +3,13 @@ import Header from './Header';
 import './App.css'
 class App extends React.Component {
   
-  clickHandler(message){
-    alert(message)
+  constructor(){
+    super();
+    this.state={
+      subscribersListToShow:[]
+    }
   }
-
   render(){
-      
-      let subscribers = [
-      {
-          id:1,
-          name:"Navdeep",
-          phone:"9876543211"
-      },
-      {
-          id:2,
-          name:"Navi",
-          phone:"2312123442"
-      }
-    ];
       return (
         <div>
             <Header heading="Phone Directory"/>
@@ -33,7 +22,7 @@ class App extends React.Component {
                     </div>
 
                     {
-                      subscribers.map(sub=>{
+                      this.state.subscribersListToShow.map(sub=>{
                         return <div key={sub.id} className="grid-container">
                         <span className="grid-item">{sub.name}</span>
                         <span className="grid-item">{sub.phone}</span>
